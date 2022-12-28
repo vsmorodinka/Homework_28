@@ -5,13 +5,14 @@ import org.junit.Before;
 import org.junit.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.Dimension;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class qwerty {
     private WebDriver driver;
@@ -60,8 +61,7 @@ public class qwerty {
         driver.findElement(By.className("bm-burger-button")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.id("logout_sidebar_link")).click();
-
+        Assert.assertTrue(driver.findElement(By.id("login-button")).isDisplayed() );
+    }
 
 }
-}
-
